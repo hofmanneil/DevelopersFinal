@@ -1,0 +1,67 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %} Homepage  {% endblock %}
+
+{% block content %}
+
+<!-- {% load static %} -->
+
+<nav>
+  {% include 'partials/navbar.html' %}
+</nav>
+
+<h1> Welcome To The Syndicate ! </h1>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <img class="card-img-top" src="{% static 'images/users.jpg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Human Resources onboarding a new user</h5>
+        <form method="post">
+          <p class="card-text">
+            {% csrf_token %}
+            <a href="{% url 'create' %}" class="btn btn-info">New User</a>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <img class="card-img-top" src="{% static 'images/equipment.jpg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Assign Inventory </h5>
+        <p class="card-text">
+          <form method="post">
+          <p class="card-text">
+          {% csrf_token %}
+          <a href="{% url 'assign' %}" class="btn btn-secondary">Inventory</a>
+
+        </form>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'images/warehouse.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">User And Inventory Search Page  </h5>
+          <p class="card-text">
+            <form method="post">
+            <p class="card-text">
+            {% csrf_token %}
+            <a href="{% url 'search' %}" class="btn btn-primary">Search Page </a>
+
+          </form>
+        </div>
+      </div>
+  </div>
+  </div>
+
+
+
+{% endblock %}

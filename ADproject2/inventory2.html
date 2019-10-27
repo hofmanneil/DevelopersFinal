@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'partials/navbar.html' %}
+{% include 'partials/portfolio.html' %}
+{% load static from staticfiles %}
+
+    <div class="container">
+        <h1>The following has been completed </h1>
+        <h2>Please enter the Hardware </h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <img class='graphic' src="{% static 'images/equipment.jpg' %}">
+           <button class="btn btn-primary" type="submit">Submit</button>
+           <a href="{% url 'search' %}" class="btn btn-primary">User Profile</a>
+        </form>
+    </div>
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <img class='graphic' src="{% static 'images/users.jpg' %}">
+       <button type="submit"  onclick="location.href='search'">Submit</button>
+         <button type="submit" onclick = "location.href=mailto:helpdesk@example.com?subject = New user Submitted  = Message">
+           Send an e-mail </button>
+    </form>
+</div>
+
+</body>
+</html>
+{% endblock %}

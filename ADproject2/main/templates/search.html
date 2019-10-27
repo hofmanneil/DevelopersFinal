@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+
+
+<h1> Search Page </h1>
+<p>What would you like to search for ?? </p>
+<img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt="...">
+
+  <form   method="post">
+    {% csrf_token %}
+    <input type="text" name="search" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+
+{% if employees %}
+  {% for employee in employees  %}
+  <div class="card" style="width: 18rem;">
+<img src="..." class="card-img-top" alt="...">
+<div class="card-body">
+  <h5 class="card-title">{{employee.firstname}} {{employee.lastname}}</h5>
+  <p class="card-title">{{employee.email_address}}</p>
+  <p class="card-text">{{employee.inventory_set.first.machine}}</p>
+  <p class="card-text">{{employee.inventory_set.first.machine_serial}}</p>
+  <p class="card-text">{{employee.inventory_set.first.monitor_type}}</p>
+  <p class="card-text">{{employee.inventory_set.first.monitor_serial}}</p>
+  <a href="{% url 'assign_edit' employee.inventory_set.first.pk %}" class="btn btn-primary">Inventory List</a>
+</div>
+</div>
+
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

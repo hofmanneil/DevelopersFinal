@@ -1,0 +1,21 @@
+body{
+background: Beige;
+}
+
+.container{
+display:flex;
+justify-content: space-between;
+margin:auto;
+text-align: center;
+
+}
+.graphic{
+display: flex;
+justify-content:space-between;
+}
+/* .container{
+display:flex;
+flex-direction: row;
+margin:auto;
+width: 50%;
+text-align: center; */
