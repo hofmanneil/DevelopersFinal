@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'partials/navbar.html' %}
+{% load static from staticfiles %}
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/computer.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Assign to Inventory </h5>
+          <form method="post">
+              <p class="card-text">
+              {% csrf_token %}
+              {{form.as_p}}</p>
+              <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+        <img class="card-img-top" src="{% static 'images/computers2.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Search Inventory </h5>
+            {% if edit %}
+            <form method="post">
+              <p class="card-text">
+              <input type="hidden" name="csrfmiddlewaretoken" value="p7LaknNGxJDXq0B3HHvErkBbHJywnW7qbGxA2UIRy98br4gYje5HV1bwJIJqK8Jz">
+                <p><label for="{{form.id.id_for_label}}">{{form.id.label_tag}}</label> {{form.id.value}}</p>
+              {% for field in form %}
+                <p><label for="{{field.id_for_label}}">{{field.label_tag}}</label> {{field.value}}</p>
+              {% endfor %}
+
+            </form>
+            {% endif %}
+            <a href="{% url 'search' %}" class="btn btn-primary">Search Page </a>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

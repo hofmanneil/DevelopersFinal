@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'main',
     'helpdesk',
     'hrapp',
+    'monitorsapp',
+    'machinesapp',
+    
 ]
 
 MIDDLEWARE = [

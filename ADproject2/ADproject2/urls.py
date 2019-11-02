@@ -24,6 +24,8 @@ urlpatterns = [
     path('', include ('main.urls')),
     path('inventory/', include('helpdesk.urls')),
     path('employee/', include ('hrapp.urls')),
+    path('monitors/', include ('monitorsapp.urls')),
+    path('machines/', include ('machinesapp.urls')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, documnet_root = settings.MEDIA_ROOT)

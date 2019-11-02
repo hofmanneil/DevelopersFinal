@@ -33,7 +33,7 @@ def assign_hardware(sender, created, instance, **kwargs):
 
 class InventoryForm(ModelForm):
     class Meta :
-        model=Inventory
+        model = Inventory
         fields = ['employee',
         'machine',
         'machine_serial',
