@@ -12,8 +12,8 @@ def machine_page(request):
         form = MachinesForm(request.POST)
         if form.is_valid():
             stock = form.save(commit=False)
-            Machines.machine = request.machine
-            inventory.save()
+            # Machines.machine = request.machine
+            form.save(stock)
             #add flash message to confirm operation successfully completed
             return redirect('assign')
 

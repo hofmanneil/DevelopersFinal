@@ -11,8 +11,8 @@ def monitors_page(request):
         form = MonitorsForm(request.POST)
         if form.is_valid():
             stock = form.save(commit=False)
-            Monitors.monitor_type = request.monitor_type
-            Monitors.save()
+            #Monitors.monitor_type= request.Monitors.monitor_type
+            Monitors.save(stock)
             #add flash message to confirm operation successfully completed
             return redirect('assign')
 
@@ -22,14 +22,14 @@ def monitors_page(request):
 
 @login_required()
 def monitors_page_modify(request, pk):
-    stock = Monitors.objects.GET(pk=pk)
+    stock = Monitors.objects.get(pk=pk)
     if request.method == 'POST':
         form = MonitorsForm(request.POST, instance = stock)
         if form.is_valid():
             stock = form.save(commit=False)
             Monitors.monitor_type = request.monitor_type
             Monitors.save()
-                #add flash message to confirm operation successfully completed
+            #add flash message to confirm operation successfully completed
             return redirect('index')
 
     else:
